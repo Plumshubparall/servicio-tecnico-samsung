@@ -53,6 +53,7 @@ En la carpeta `src/` podés incluir:
 
 ## 📞 Contacto
 Para consultas o soporte técnico, comunicate con nosotros a través de [email@example.com](mailto:email@example.com) o visitá nuestro sitio oficial.
+![Vista previa del sitio](assets/vista-previa.png)
 
 ---
 
