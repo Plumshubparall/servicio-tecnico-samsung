@@ -1,0 +1,32 @@
+<div id="whatsapp-button">
+  <a href="https://wa.me/5491123456789" target="_blank" title="¡Escribinos por WhatsApp!">
+    <img src="../assets/icons/whatsapp-circle.svg" alt="WhatsApp" />
+  </a>
+</div>
+#whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+#whatsapp-button img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+#whatsapp-button img:hover {
+  transform: scale(1.1);
+}
+<div id="whatsapp-widget-container"></div>
+
+<script>
+  fetch('src/components/whatsapp-widget.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("whatsapp-widget-container").innerHTML = html;
+    });
+</script>
