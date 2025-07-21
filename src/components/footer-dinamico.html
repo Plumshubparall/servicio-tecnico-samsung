@@ -1,1 +1,49 @@
 src/components/footer-dinamico.html
+<footer class="site-footer">
+  <div class="footer-info">
+    <p id="year">&copy; Servicio Técnico Samsung. Todos los derechos reservados.</p>
+    <p id="dynamic-message"></p>
+    <p>Correo: contacto@samsungservicio.com | Tel: +54 11 1234 5678</p>
+  </div>
+  <div class="footer-social">
+    <a href="https://wa.me/5491123456789" target="_blank">
+      <img src="../assets/images/whatsapp-icon.png" alt="WhatsApp" />
+    </a>
+    <a href="https://www.facebook.com/samsungservicio" target="_blank">
+      <img src="../assets/images/facebook-icon.png" alt="Facebook" />
+    </a>
+  </div>
+</footer>
+
+<script>
+  // Fecha actual
+  const year = new Date().getFullYear();
+  document.getElementById("year").innerHTML = `&copy; ${year} Servicio Técnico Samsung. Todos los derechos reservados.`;
+
+  // Mensajes rotativos
+  const messages = [
+    "¿Tenés dudas? ¡Escribinos por WhatsApp! 📱",
+    "Servicio técnico autorizado — garantía asegurada ✅",
+    "¡Gracias por confiar en nosotros! 💙"
+  ];
+  let index = 0;
+  setInterval(() => {
+    document.getElementById("dynamic-message").textContent = messages[index];
+    index = (index + 1) % messages.length;
+  }, 5000);
+</script>
+.site-footer {
+  background-color: #00274d;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+.footer-info {
+  margin-bottom: 10px;
+}
+.footer-social img {
+  width: 30px;
+  margin: 0 8px;
+  vertical-align: middle;
+}
