@@ -1,0 +1,9 @@
+<div id="servicios-container"></div>
+
+<script>
+  fetch('src/components/servicios.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("servicios-container").innerHTML = html;
+    });
+</script>
