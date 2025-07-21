@@ -118,3 +118,30 @@ setInterval(() => {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+<section class="servicios-slider">
+  <h2>Servicios Destacados</h2>
+  <div class="slider-container">
+    <div class="slide active">
+      <h3>Reparación de móviles</h3>
+      <p>Soluciones para pantallas rotas, batería y software.</p>
+    </div>
+    <div class="slide">
+      <h3>Servicio a domicilio</h3>
+      <p>Retiro y entrega de equipos sin moverte de casa.</p>
+    </div>
+    <div class="slide">
+      <h3>Actualizaciones y garantía</h3>
+      <p>Tu equipo siempre protegido y actualizado.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let current = 0;
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 4000);
+</script>
