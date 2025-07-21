@@ -1,1 +1,93 @@
+<section class="servicios-slider">
+  <h2>Servicios Destacados</h2>
+  <div class="slider-container">
+    <button id="prev">&#8592;</button>
+    <div class="slide active">
+      <img src="../assets/icons/repair.svg" alt="Reparación" class="icono-servicio" />
+      <h3>Reparación de móviles</h3>
+      <p>Soluciones para pantallas, batería y software.</p>
+    </div>
+    <div class="slide">
+      <img src="../assets/icons/home.svg" alt="Domicilio" class="icono-servicio" />
+      <h3>Servicio a domicilio</h3>
+      <p>Retiro y entrega sin moverte de casa.</p>
+    </div>
+    <div class="slide">
+      <img src="../assets/icons/update.svg" alt="Actualizaciones" class="icono-servicio" />
+      <h3>Actualizaciones y garantía</h3>
+      <p>Tu equipo siempre protegido y actualizado.</p>
+    </div>
+    <button id="next">&#8594;</button>
+  </div>
+</section>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let current = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+
+  document.getElementById("prev").addEventListener("click", () => {
+    current = (current - 1 + slides.length) % slides.length;
+    showSlide(current);
+  });
+
+  document.getElementById("next").addEventListener("click", () => {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+  });
+
+  setInterval(() => {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+  }, 5000);
+</script>
+.servicios-slider {
+  text-align: center;
+  background-color: #f9f9f9;
+  padding: 40px 20px;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.slide {
+  flex: 1;
+  display: none;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  display: block;
+  opacity: 1;
+}
+
+button {
+  background-color: #007aff;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.icono-servicio {
+  width: 60px;
+  margin-bottom: 10px;
+}
 
