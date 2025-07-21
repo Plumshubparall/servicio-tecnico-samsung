@@ -39,7 +39,65 @@
   text-align: center;
   background-color: #f4f4f4;
   padding: 40px 20px;
+}<section class="servicios-slider">
+  <h2>Servicios Destacados</h2>
+  <div class="slider-container">
+    <div class="slide active">
+      <h3>Reparación de móviles</h3>
+      <p>Soluciones rápidas para pantallas rotas, batería y software.</p>
+    </div>
+    <div class="slide">
+      <h3>Servicio a domicilio</h3>
+      <p>Retiro y entrega de equipos sin moverte de casa.</p>
+    </div>
+    <div class="slide">
+      <h3>Actualizaciones y garantía</h3>
+      <p>Mantené tu equipo siempre protegido y actualizado.</p>
+    </div>
+  </div>
+</section>
+.servicios-slider {
+  padding: 40px 20px;
+  background-color: #f4f4f4;
+  text-align: center;
 }
+.slider-container {
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+.slide {
+  display: none;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.slide.active {
+  display: block;
+  animation: fadeIn 1s ease-in;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+const slides = document.querySelectorAll('.slide');
+let current = 0;
+setInterval(() => {
+  slides[current].classList.remove('active');
+  current = (current + 1) % slides.length;
+  slides[current].classList.add('active');
+}, 4000);
+<div id="servicios-container"></div>
+
+<script>
+  fetch('src/components/servicios.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('servicios-container').innerHTML = html;
+    });
+</script>
+
 .slider-container {
   position: relative;
   max-width: 600px;
