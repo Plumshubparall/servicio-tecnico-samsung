@@ -90,4 +90,34 @@ button {
   width: 60px;
   margin-bottom: 10px;
 }
+<div id="servicio-slider-container"></div>
 
+<script>
+  fetch('src/components/servicio-slider.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("servicio-slider-container").innerHTML = html;
+    });
+</script>
+
+/* 🌙 Modo oscuro (activado si el sistema lo tiene configurado) */
+@media (prefers-color-scheme: dark) {
+  .servicios-slider {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+  }
+
+  .slide {
+    background-color: #2c2c2c;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  }
+
+  button {
+    background-color: #007aff;
+    color: white;
+  }
+
+  .icono-servicio {
+    filter: brightness(0) invert(1); /* Volver íconos claros */
+  }
+}
